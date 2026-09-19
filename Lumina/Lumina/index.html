@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday Pyaari Didi ✨ | 1M Queen 👑</title>
+    
+    <!-- Meta tags for social and SEO -->
+    <meta name="description" content="A magical, interactive birthday celebration for Annu Didi — Happy Birthday Pyaari Didi & 1M Queen.">
+    <meta name="theme-color" content="#07040d">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Caveat:wght@600;700&family=Great+Vibes&family=Montserrat:wght@500;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Particle & Fireworks Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Floating Top Action Bar -->
+    <header id="topControls" class="top-controls">
+        <div class="brand-pill">
+            <span class="live-dot"></span>
+            <span class="brand-text">Pyaari Didi • 1M Queen 👑</span>
+        </div>
+        <div class="control-actions">
+            <button id="btnMusic" class="control-btn" title="Toggle Music (M)" aria-label="Toggle Music">
+                <span class="icon">🎵</span>
+                <span class="btn-label">Music</span>
+            </button>
+            <button id="btnConfetti" class="control-btn" title="Burst Confetti (C)" aria-label="Burst Confetti">
+                <span class="icon">🎉</span>
+                <span class="btn-label">Party</span>
+            </button>
+            <button id="btnRestart" class="control-btn" title="Replay Experience (R)" aria-label="Restart">
+                <span class="icon">🔄</span>
+                <span class="btn-label">Replay</span>
+            </button>
+            <button id="btnFullscreen" class="control-btn" title="Fullscreen (F)" aria-label="Fullscreen">
+                <span class="icon">⛶</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Interactive Process / Chapter Timeline Navigator -->
+    <nav id="journeyNav" class="journey-nav hidden" aria-label="Story Chapters">
+        <button class="nav-step active" data-chapter="0">
+            <span class="step-num">✨</span>
+            <span class="step-text">Particles</span>
+        </button>
+        <button class="nav-step" data-chapter="1">
+            <span class="step-num">👑</span>
+            <span class="step-text">1M Queen</span>
+        </button>
+        <button class="nav-step" data-chapter="2">
+            <span class="step-num">📸</span>
+            <span class="step-text">Memories</span>
+        </button>
+        <button class="nav-step" data-chapter="3">
+            <span class="step-num">🎂</span>
+            <span class="step-text">Make A Wish</span>
+        </button>
+        <button class="nav-step" data-chapter="4">
+            <span class="step-num">💌</span>
+            <span class="step-text">Letter</span>
+        </button>
+        <button class="nav-step" data-chapter="5">
+            <span class="step-num">🎆</span>
+            <span class="step-text">Grand Finale</span>
+        </button>
+    </nav>
+
+    <!-- Dynamic Quote Ribbon -->
+    <div id="romanticQuote" class="romantic-quote-ribbon hidden">
+        <span class="quote-sparkle">✨</span>
+        <p id="quoteText" class="quote-text">Celebrating the most amazing Pyaari Didi today... 💖</p>
+        <span class="quote-sparkle">✨</span>
+    </div>
+
+    <!-- Chapter Container (Floating Overlays for Storytelling) -->
+    <main id="chaptersContainer" class="chapters-container hidden">
+
+        <!-- CHAPTER 1: 1M Queen Tribute (Clean, visual, no awkward paragraph) -->
+        <section id="chapterCreator" class="chapter-card hidden" data-index="1">
+            <div class="creator-badge-glow">
+                <span class="creator-tag">🏆 OFFICIAL 1M QUEEN DIDI 👑</span>
+            </div>
+            <div class="creator-grid">
+                <div class="creator-photo-card glass-panel">
+                    <div class="photo-frame streamer-frame">
+                        <img src="assets/photo1_streamer.jpg" alt="Annu Didi 1M Queen" class="creator-img">
+                        <div class="live-stream-tag">
+                            <span class="pulse-red"></span> 1M+ HEARTS WON
+                        </div>
+                        <div class="photo-overlay-glow"></div>
+                    </div>
+                </div>
+                <div class="creator-info glass-panel">
+                    <div class="subs-counter-badge">
+                        <span class="yt-play-icon">▶</span>
+                        <div class="subs-details">
+                            <span class="subs-number">1,000,000+</span>
+                            <span class="subs-subtext">Golden Milestone Achieved 💫</span>
+                        </div>
+                    </div>
+                    <h2 class="creator-title">Annu Didi 👑</h2>
+                    <div class="creator-tags-list">
+                        <span class="tag-item">🎮 Gamer & Streamer</span>
+                        <span class="tag-item">👑 1M Queen</span>
+                        <span class="tag-item">💖 Sabse Pyaari Didi</span>
+                        <span class="tag-item">🌟 10M Loading...</span>
+                    </div>
+                    <button class="next-chapter-btn" data-target="2">Next: Sweet Memories 📸 &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 2: Memory Gallery & Polaroid Showcase -->
+        <section id="chapterMemories" class="chapter-card hidden" data-index="2">
+            <div class="section-heading">
+                <span class="mini-tag">AURA & SMILE 🌸</span>
+                <h2 class="gallery-title">The Magic in Every Frame ✨</h2>
+                <p class="gallery-subtitle">A smile that turns any ordinary day into pure sunshine</p>
+            </div>
+
+            <!-- Filter Switcher -->
+            <div class="filter-pills">
+                <button class="filter-pill active" data-filter="glow">✨ Golden Hour Glow</button>
+                <button class="filter-pill" data-filter="rose">🌸 Dreamy Rose</button>
+                <button class="filter-pill" data-filter="cyber">⚡ Cyber Streamer</button>
+            </div>
+
+            <div class="polaroid-deck">
+                <!-- Polaroid 1 -->
+                <div class="polaroid-card polaroid-tilt-left" data-lightbox="assets/photo2_candid.jpg" data-caption="The Smile that Lights up Every Room 💖">
+                    <div class="polaroid-pin">📌</div>
+                    <div class="polaroid-img-wrap">
+                        <img src="assets/photo2_candid.jpg" alt="Annu Didi Candid Smile" class="polaroid-img">
+                    </div>
+                    <div class="polaroid-caption">
+                        <span class="polaroid-handwriting">Pyaari Si Smile 🌸</span>
+                        <span class="polaroid-sub">Positive energy & warmth!</span>
+                    </div>
+                </div>
+
+                <!-- Polaroid 2 -->
+                <div class="polaroid-card polaroid-tilt-right" data-lightbox="assets/photo3_flower.jpg" data-caption="Purest Soul & Sabse Pyaari Didi 🌺💫">
+                    <div class="polaroid-pin">🌸</div>
+                    <div class="polaroid-img-wrap">
+                        <img src="assets/photo3_flower.jpg" alt="Annu Didi Flower Aesthetic" class="polaroid-img">
+                    </div>
+                    <div class="polaroid-caption">
+                        <span class="polaroid-handwriting">Flower Child Vibes 🌺</span>
+                        <span class="polaroid-sub">Pure elegance & kindness</span>
+                    </div>
+                </div>
+
+                <!-- Polaroid 3 -->
+                <div class="polaroid-card polaroid-tilt-center" data-lightbox="assets/photo1_streamer.jpg" data-caption="1M Queen In Her Element 🎧✨">
+                    <div class="polaroid-pin">👑</div>
+                    <div class="polaroid-img-wrap">
+                        <img src="assets/photo1_streamer.jpg" alt="Annu Didi 1M Queen" class="polaroid-img">
+                    </div>
+                    <div class="polaroid-caption">
+                        <span class="polaroid-handwriting">1M Queen Didi 👑</span>
+                        <span class="polaroid-sub">1M Milestone Achiever</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="polaroid-footer-nav">
+                <button class="next-chapter-btn" data-target="3">Next: Make A Birthday Wish 🎂 &rarr;</button>
+            </div>
+        </section>
+
+        <!-- CHAPTER 3: Interactive Birthday Cake & Candle Blow -->
+        <section id="chapterCake" class="chapter-card hidden" data-index="3">
+            <div class="cake-header">
+                <span class="mini-tag">INTERACTIVE MOMENT 🕯️</span>
+                <h2 class="cake-title">Make A Wish, Pyaari Didi! 🎂</h2>
+                <p class="cake-subtitle" id="cakeInstruction">Click or tap the glowing candle to blow it out and make your birthday wish!</p>
+            </div>
+
+            <div class="cake-stage" id="cakeStage">
+                <!-- 3D CSS Cake -->
+                <div class="cake-container" id="cakeInteractive" title="Tap candle to blow!">
+                    <!-- Candle -->
+                    <div class="candle" id="birthdayCandle">
+                        <div class="flame" id="candleFlame">
+                            <div class="flame-inner"></div>
+                        </div>
+                        <div class="smoke" id="candleSmoke"></div>
+                        <div class="wick"></div>
+                        <div class="candle-body"></div>
+                    </div>
+                    <!-- Cake Top Tier -->
+                    <div class="cake-tier tier-top">
+                        <div class="frosting-drops">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="berry-toppings">🍓 🍒 🫐 🍓</div>
+                    </div>
+                    <!-- Cake Middle Tier -->
+                    <div class="cake-tier tier-middle">
+                        <div class="gold-ribbon">1,000,000 ✨ QUEEN DIDI</div>
+                    </div>
+                    <!-- Cake Base -->
+                    <div class="cake-tier tier-base">
+                        <div class="cream-swirls"></div>
+                    </div>
+                    <!-- Cake Plate -->
+                    <div class="cake-plate"></div>
+                </div>
+            </div>
+
+            <div class="cake-actions">
+                <button id="btnBlowCandle" class="blow-candle-btn">
+                    <span class="btn-sparkle">✨</span> Blow The Candle 💨
+                </button>
+            </div>
+
+            <div id="wishGrantedBanner" class="wish-granted-banner hidden">
+                <div class="grant-icon">🎉</div>
+                <h3>Wish Sent To The Stars! 🌟</h3>
+                <p>May all your deepest dreams and upcoming milestones come true this year!</p>
+                <button class="next-chapter-btn" data-target="4">Read Your Birthday Letter 💌 &rarr;</button>
+            </div>
+        </section>
+
+        <!-- CHAPTER 4: Heartfelt Hand-written Letter -->
+        <section id="chapterLetter" class="chapter-card hidden" data-index="4">
+            <div class="envelope-wrapper" id="envelopeWrapper">
+                <div class="envelope" id="letterEnvelope">
+                    <div class="envelope-front">
+                        <div class="envelope-stamp">👑 1M</div>
+                        <div class="envelope-seal" id="envelopeSeal">
+                            <span class="seal-icon">💖</span>
+                            <span class="seal-text">TAP TO OPEN</span>
+                        </div>
+                        <div class="envelope-to">
+                            <span>For: Meri Sabse Pyaari Didi 🌸</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unfolded Letter Paper -->
+                <div class="letter-paper hidden" id="letterPaper">
+                    <div class="letter-ornament">✦ ✦ ✦</div>
+                    <h3 class="letter-greeting">Dearest Pyaari Didi,</h3>
+                    
+                    <div class="letter-body">
+                        <p class="letter-line">
+                            Didi, socha tha ki kabhi koi behen nahi hogi... jaise akele aaya tha waise hi akele chala jaunga. Par ab main kisi ko bhi garv se bol sakta hoon ki meri ek sabse pyaari didi hain! 💖
+                        </p>
+                        <p class="letter-line">
+                            Kuch cheezein zaroor kharab hain, but ignore it... mere liye bas itna bohot hai ki aap mujhe apna bhai to maante ho.
+                        </p>
+                        <p class="letter-line">
+                            Love you so much didi! Waise to I think 'love you' apni girlfriend ko bolna chahiye... par kya karein, bache jaise dikhne wali didi shayad bhool gayi hain ki unka ek chhota bhai bhi hai jo single hai! 😄
+                        </p>
+                        <p class="letter-line">
+                            Kya matlab ki aapke birthday par aapse hi gift maang raha hoon? 😂🎁
+                        </p>
+                        <p class="letter-line">
+                            Aap hamesha aise hi muskurate raho aur <strong>1M wale bache didi</strong> ban ke sabke dilon par raaj karte raho.
+                        </p>
+                        <p class="letter-line letter-closing">
+                            <strong>Happy Birthday meri sabse Pyaari Didi! 🎂🎉👑</strong>
+                        </p>
+                    </div>
+
+                    <div class="letter-sign">
+                    </div>
+
+                    <div class="letter-actions">
+                        <button class="next-chapter-btn" data-target="5">Grand Finale Celebration 🎆 &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHAPTER 5: Grand Finale / Wish Wall -->
+        <section id="chapterFinale" class="chapter-card hidden" data-index="5">
+            <div class="finale-content glass-panel">
+                <div class="finale-crown">👑</div>
+                <h2 class="finale-title">Happy Birthday Pyaari Didi! 🎂🎉</h2>
+                <h3 class="finale-subtitle">1M Queen • Always Radiant & Smiling ✨</h3>
+
+                <div class="mini-photo-strip">
+                    <div class="strip-item"><img src="assets/photo1_streamer.jpg" alt="1M Queen"></div>
+                    <div class="strip-item center-strip"><img src="assets/photo2_candid.jpg" alt="Candid Smile"></div>
+                    <div class="strip-item"><img src="assets/photo3_flower.jpg" alt="Flower Aesthetic"></div>
+                </div>
+
+                <div class="finale-milestones">
+                    <div class="milestone-box">
+                        <span class="m-icon">🌟</span>
+                        <span class="m-val">1,000,000+</span>
+                        <span class="m-lbl">Happy Hearts</span>
+                    </div>
+                    <div class="milestone-box">
+                        <span class="m-icon">💖</span>
+                        <span class="m-val">Infinite</span>
+                        <span class="m-lbl">Smiles & Pyaar</span>
+                    </div>
+                    <div class="milestone-box">
+                        <span class="m-icon">🎯</span>
+                        <span class="m-val">10M Next</span>
+                        <span class="m-lbl">Target Locked</span>
+                    </div>
+                </div>
+
+                <div class="finale-buttons">
+                    <button id="btnFinaleConfetti" class="glow-primary-btn">
+                        <span>🎊 Launch Mega Fireworks 🎆</span>
+                    </button>
+                    <button id="btnReplayAll" class="glow-secondary-btn">
+                        <span>🔄 Replay From Start</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Tap Firework Hint at Bottom -->
+    <div id="tapHint" class="tap-hint">
+        <span>✨ Tap or drag anywhere on screen for sparkles & harp chimes ✨</span>
+    </div>
+
+    <!-- Lightbox Modal for Photo Zoom -->
+    <div id="lightboxModal" class="lightbox-modal hidden">
+        <div class="lightbox-backdrop"></div>
+        <div class="lightbox-content">
+            <button id="lightboxClose" class="lightbox-close">&times;</button>
+            <img id="lightboxImg" src="" alt="Zoomed Photo" class="lightbox-img">
+            <p id="lightboxCaption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <!-- Cheeky Interactive Loading Screen (Paused on "Wait... Annu Didi?", then clicks to reveal "No no... Pyaari Didi!") -->
+    <div id="startOverlay" class="overlay">
+        <div class="loader-container">
+            <!-- Animated Avatar Rings -->
+            <div class="avatar-loader">
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="avatar-inner">
+                    <img src="assets/photo2_candid.jpg" alt="Annu Didi Preview" class="loader-avatar-img">
+                </div>
+                <div class="crown-badge">👑</div>
+            </div>
+
+            <!-- Cheeky Text Swapper -->
+            <div class="cheeky-text-wrapper">
+                <div class="cheeky-box">
+                    <h1 id="cheekyHeading" class="cheeky-heading">
+                        <span class="typing-text">Loading Birthday Surprise for Annu Didi... 🎁</span>
+                    </h1>
+                </div>
+                <p id="cheekySubtext" class="cheeky-subtext">Preparing celebration...</p>
+            </div>
+
+            <!-- Sleek Progress Bar -->
+            <div class="loader-bar-wrap" id="loaderBarWrap">
+                <div class="loader-bar-fill" id="loaderBarFill"></div>
+                <span class="loader-percent" id="loaderPercent">0%</span>
+            </div>
+
+            <!-- Step 1 Pause Button (Click to reveal "No no... Pyaari Didi!") -->
+            <button id="btnCheekyNext" class="glow-pill cheeky-action-btn hidden" type="button">
+                <span class="pill-sparkle">🤔</span>
+                <span class="pill-text">Wait... 'Annu Didi'? Click Here! 👉</span>
+                <span class="pill-sparkle">✨</span>
+            </button>
+
+            <!-- Step 2 Final Button (Shown when 100% ready) -->
+            <button id="startPromptPill" class="glow-pill cheeky-enter-btn hidden" type="button">
+                <span class="pill-sparkle">💖</span>
+                <span class="pill-text">✨ Enter Pyaari Didi's Celebration ✨</span>
+                <span class="pill-sparkle">👑</span>
+            </button>
+
+            <p class="audio-hint" id="audioHint">🎧 Put on headphones for synthesized music & chimes</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
